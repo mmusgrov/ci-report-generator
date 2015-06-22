@@ -1,0 +1,16 @@
+{
+  "name": "ci-report-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "gytist@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "jenkins": "^0.10.1",
+    "q": "^1.4.1",
+    "underscore": "^1.8.3"
+  }
+}
