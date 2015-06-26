@@ -6,6 +6,18 @@ var jobs = [
     {
         baseUrl: "http://albany.eng.hst.ams2.redhat.com",
         name: "narayana-catelyn"
+    },
+    {
+        baseUrl: "http://albany.eng.hst.ams2.redhat.com",
+        name: "narayana-documentation"
+    },
+    {
+        baseUrl: "http://albany.eng.hst.ams2.redhat.com",
+        name: "narayana-quickstarts"
+    },
+    {
+        baseUrl: "http://albany.eng.hst.ams2.redhat.com",
+        name: "narayana-quickstarts-catelyn"
     }
 ]; // TODO get from config
 
@@ -28,7 +40,7 @@ fromArray.obj(jobs)
     .pipe(jiraInfoStream)
     .pipe(failuresAggregatorStream);
 
-var pdfReportGenerator = require("./pdfReportGenerator.js");
+var htmlReportGenerator = require("./htmlReportGenerator.js");
 
 // Failures aggregator should only push once
-failuresAggregatorStream.on("data", pdfReportGenerator);
+failuresAggregatorStream.on("data", htmlReportGenerator);
