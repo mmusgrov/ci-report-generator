@@ -15,8 +15,9 @@ module.exports = through.obj(function(build, encoding, callback) {
     }
 
     for (var i = 0; i < jiraIssues.length; i++) {
-        build.jiraIssueKey = jiraIssues[i];
-        this.push(build);
+        var clone = Object.create(build);
+        clone.jiraIssueKey = jiraIssues[i];
+        this.push(clone);
     }
 
     return callback();
