@@ -25,12 +25,12 @@ var jiraHost = "issues.jboss.org"; // TODO get from config
 
 var _ = require("underscore");
 var fromArray = require("from2-array");
-var jenkinsBuildsStream = require("./jenkinsBuildsStream");
-var jenkinsBuildsInfoStream = require("./jenkinsBuildsInfoStream");
-var jenkinsFailedBuildsFilterStream = require("./jenkinsFailedBuildsFilterStream.js");
-var jiraIssuesStream = require("./jiraIssuesStream.js");
-var jiraInfoStream = require("./jiraInfoStream.js")(jiraHost);
-var failuresAggregatorStream = require("./failuresAggregatorStream.js");
+var jenkinsBuildsStream = require("./streams/jenkinsBuildsStream");
+var jenkinsBuildsInfoStream = require("./streams/jenkinsBuildsInfoStream");
+var jenkinsFailedBuildsFilterStream = require("./streams/jenkinsFailedBuildsFilterStream.js");
+var jiraIssuesStream = require("./streams/jiraIssuesStream.js");
+var jiraInfoStream = require("./streams/jiraInfoStream.js")(jiraHost);
+var failuresAggregatorStream = require("./streams/failuresAggregatorStream.js");
 
 fromArray.obj(jobs)
     .pipe(jenkinsBuildsStream)
@@ -40,7 +40,7 @@ fromArray.obj(jobs)
     .pipe(jiraInfoStream)
     .pipe(failuresAggregatorStream);
 
-var htmlReportGenerator = require("./htmlReportGenerator.js");
+var htmlReportGenerator = require("./generators/htmlReportGenerator.js");
 
 // Failures aggregator should only push once
 failuresAggregatorStream.on("data", htmlReportGenerator);

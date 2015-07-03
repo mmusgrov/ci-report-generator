@@ -18,6 +18,7 @@ module.exports = function(host) {
         // TODO keeps getting the same issue, if multiple issues were on the same build
         jira.issue.getIssue({issueKey: build.jiraIssueKey}, function(error, issue) {
             if (error) {
+                console.error("Got an error while getting issue info: " + error);
                 callback(error);
             }
 
@@ -27,4 +28,4 @@ module.exports = function(host) {
             callback(null, build);
         });
     });
-}
+};
