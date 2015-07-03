@@ -22,6 +22,22 @@ function getColour(failure) {
     return "#FFFFFF";
 }
 
+function getFailedBuildsTags(builds) {
+    var tags = [];
+
+    for (var i = 0; i < builds.length; i++) {
+        var tag = {
+            "tag": "a",
+            "href": builds[i].url,
+            "html": builds[i].jobName + " " + builds[i].number
+        };
+
+        tags.push(tag);
+    }
+
+    return tags;
+}
+
 module.exports = function(failures) {
     var structure = {"tag": "table", "border": 1, "children": [
         {"tag": "tr", "children": [
@@ -30,7 +46,7 @@ module.exports = function(failures) {
             {"tag": "th", "width": "100px", "html": "Status"},
             {"tag": "th", "width": "100px", "html": "Failures Count"},
             {"tag": "th", "width": "100px", "html": "Last Failure Date"},
-            {"tag": "th", "width": "100px", "html": "Last Failed Build"}
+            {"tag": "th", "width": "100px", "html": "Failed Builds"}
         ]}
     ]};
 
@@ -50,10 +66,7 @@ module.exports = function(failures) {
                     {"tag": "td", "html": values[i].jiraIssueStatus},
                     {"tag": "td", "html": values[i].builds.length},
                     {"tag": "td", "bgcolor": getColour(latestFailedBuild), "html": dateToString(new Date(latestFailedBuild.timestamp))},
-                    {"tag": "td", "children": [
-                        {"tag": "a", "href": latestFailedBuild.url,
-                            "html": latestFailedBuild.jobName + " " + latestFailedBuild.number}
-                    ]}
+                    {"tag": "td", class: "failedBuilds", "children": getFailedBuildsTags(values[i].builds)}
                 ]
             };
 
