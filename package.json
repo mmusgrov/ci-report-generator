@@ -13,7 +13,6 @@
     "jenkins": "^0.10.1",
     "jira-connector": "^1.0.0",
     "node-json2html": "^1.0.0",
-    "pdfkit": "^0.7.1",
     "q": "^1.4.1",
     "through2": "^2.0.0",
     "through2-filter": "^2.0.0",
