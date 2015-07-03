@@ -8,6 +8,20 @@ function dateToString(date) {
     return date.getDate() + "/" + (1 + date.getMonth()) + "/" + date.getFullYear();
 }
 
+function isClosed(status) {
+    return status.toLowerCase() === "closed" || status.toLowerCase() === "resolved";
+}
+
+function getColour(failure) {
+    if (isClosed(failure.jiraIssueStatus)) {
+        return "#DF0101";
+    } else if (failure.timestamp > (new Date().getTime() - weekMilliseconds)) {
+        return "#F7FE2E";
+    }
+
+    return "#FFFFFF";
+}
+
 module.exports = function(failures) {
     var structure = {"tag": "table", "border": 1, "children": [
         {"tag": "tr", "children": [
@@ -35,8 +49,7 @@ module.exports = function(failures) {
                     {"tag": "td", "html": values[i].jiraIssueSummary},
                     {"tag": "td", "html": values[i].jiraIssueStatus},
                     {"tag": "td", "html": values[i].builds.length},
-                    {"tag": "td", "bgcolor": (latestFailedBuild.timestamp > (new Date().getTime() - weekMilliseconds)) ? "yellow" : "",
-                        "html": dateToString(new Date(latestFailedBuild.timestamp))},
+                    {"tag": "td", "bgcolor": getColour(latestFailedBuild), "html": dateToString(new Date(latestFailedBuild.timestamp))},
                     {"tag": "td", "children": [
                         {"tag": "a", "href": latestFailedBuild.url,
                             "html": latestFailedBuild.jobName + " " + latestFailedBuild.number}
