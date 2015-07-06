@@ -27,6 +27,7 @@
                             <th>JIRA key</th>
                             <th>JIRA summary</th>
                             <th>JIRA status</th>
+                            <th>JIRA priority</th>
                             <th>Number of failures</th>
                             <th>Last failed on</th>
                             <th>Failed builds</th>
@@ -37,6 +38,7 @@
                             <td>{{ failure.jiraIssueKey }}</td>
                             <td>{{ failure.jiraIssueSummary }}</td>
                             <td>{{ failure.jiraIssueStatus }}</td>
+                            <td>{{ failure.jiraIssuePriority }}</td>
                             <td>{{ failure.builds.length }}</td>
                             {% if failure.isNew %}
                                 <td>{{ failure.lastFailureDate }} <span class="label label-warning">New</span></td>

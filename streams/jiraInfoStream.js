@@ -11,6 +11,7 @@ module.exports = function(host) {
             build.jiraIssueKey = null;
             build.jiraIssueStatus = null;
             build.jiraIssueSummary = null;
+            build.jiraIssuePriority = null;
 
             return callback(null, build);
         }
@@ -24,6 +25,7 @@ module.exports = function(host) {
 
             build.jiraIssueStatus = issue.fields.status.name;
             build.jiraIssueSummary = issue.fields.summary;
+            build.jiraIssuePriority = issue.fields.priority.name;
 
             callback(null, build);
         });

@@ -22,6 +22,7 @@ function transform(build, encoding, callback) {
             jiraIssueKey: build.jiraIssueKey,
             jiraIssueStatus: build.jiraIssueStatus,
             jiraIssueSummary: build.jiraIssueSummary,
+            jiraIssuePriority: build.jiraIssuePriority,
             builds: [build]
         };
     }
