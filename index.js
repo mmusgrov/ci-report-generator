@@ -1,38 +1,13 @@
-var jobs = [
-    {
-        baseUrl: "http://albany.eng.hst.ams2.redhat.com",
-        name: "narayana"
-    },
-    {
-        baseUrl: "http://albany.eng.hst.ams2.redhat.com",
-        name: "narayana-catelyn"
-    },
-    {
-        baseUrl: "http://albany.eng.hst.ams2.redhat.com",
-        name: "narayana-documentation"
-    },
-    {
-        baseUrl: "http://albany.eng.hst.ams2.redhat.com",
-        name: "narayana-quickstarts"
-    },
-    {
-        baseUrl: "http://albany.eng.hst.ams2.redhat.com",
-        name: "narayana-quickstarts-catelyn"
-    }
-]; // TODO get from config
-
-var jiraHost = "issues.jboss.org"; // TODO get from config
-
-var _ = require("underscore");
+var config = require("./config.json");
 var fromArray = require("from2-array");
 var jenkinsBuildsStream = require("./streams/jenkinsBuildsStream");
 var jenkinsBuildsInfoStream = require("./streams/jenkinsBuildsInfoStream");
 var jenkinsFailedBuildsFilterStream = require("./streams/jenkinsFailedBuildsFilterStream.js");
 var jiraIssuesStream = require("./streams/jiraIssuesStream.js");
-var jiraInfoStream = require("./streams/jiraInfoStream.js")(jiraHost);
+var jiraInfoStream = require("./streams/jiraInfoStream.js")(config.jiraHost);
 var failuresAggregatorStream = require("./streams/failuresAggregatorStream.js");
 
-fromArray.obj(jobs)
+fromArray.obj(config.jobs)
     .pipe(jenkinsBuildsStream)
     .pipe(jenkinsBuildsInfoStream)
     .pipe(jenkinsFailedBuildsFilterStream)

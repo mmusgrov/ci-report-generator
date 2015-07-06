@@ -1,0 +1,25 @@
+{
+  "jiraHost": "issues.jboss.org",
+  "jobs": [
+    {
+      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
+      "name": "narayana"
+    },
+    {
+      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
+      "name": "narayana-catelyn"
+    },
+    {
+      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
+      "name": "narayana-documentation"
+    },
+    {
+      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
+      "name": "narayana-quickstarts"
+    },
+    {
+      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
+      "name": "narayana-quickstarts-catelyn"
+    }
+  ]
+}
