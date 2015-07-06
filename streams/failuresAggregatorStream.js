@@ -23,6 +23,7 @@ function transform(build, encoding, callback) {
             jiraIssueStatus: build.jiraIssueStatus,
             jiraIssueSummary: build.jiraIssueSummary,
             jiraIssuePriority: build.jiraIssuePriority,
+            jiraIssueUrl: build.jiraIssueUrl,
             builds: [build]
         };
     }

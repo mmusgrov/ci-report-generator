@@ -34,7 +34,9 @@
                     </thead>
                     {% for failure in documentedFailures %}
                         <tr>
-                            <td>{{ failure.jiraIssueKey }}</td>
+                            <td>
+                                <a href="{{ failure.jiraIssueUrl }}">{{ failure.jiraIssueKey }}</a>
+                            </td>
                             <td>{{ failure.jiraIssueSummary }}</td>
                             <td>{{ failure.jiraIssueStatus }}</td>
                             <td>{{ failure.jiraIssuePriority }}</td>

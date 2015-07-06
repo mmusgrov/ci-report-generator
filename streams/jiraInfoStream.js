@@ -8,6 +8,7 @@ module.exports = function(host) {
         // console.log("Getting JIRA info of " + build.jobName + " build " + build.number);
 
         if (!build.jiraIssueKey) {
+            build.jiraIssueUrl = null;
             build.jiraIssueKey = null;
             build.jiraIssueStatus = null;
             build.jiraIssueSummary = null;
@@ -16,13 +17,13 @@ module.exports = function(host) {
             return callback(null, build);
         }
 
-        // TODO keeps getting the same issue, if multiple issues were on the same build
         jira.issue.getIssue({issueKey: build.jiraIssueKey}, function(error, issue) {
             if (error) {
                 console.error("Got an error while getting issue info: " + error);
                 callback(error);
             }
 
+            build.jiraIssueUrl = "https://" + host + "/browse/" + build.jiraIssueKey;
             build.jiraIssueStatus = issue.fields.status.name;
             build.jiraIssueSummary = issue.fields.summary;
             build.jiraIssuePriority = issue.fields.priority.name;
