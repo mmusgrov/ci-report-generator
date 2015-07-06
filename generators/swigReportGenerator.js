@@ -47,8 +47,8 @@ function documentedFailuresFilter(failure) {
 module.exports = function(failuresMap) {
     var deferred = q.defer();
     var failuresArray = _.values(failuresMap);
-    var documentedFailures = _.sortBy(addLastFailureInfo(_.filter(failuresArray, documentedFailuresFilter)), "lastFailureDate").reverse();
-    var undocumentedBuilds = _.sortBy(addBuildInfo(failuresMap.other.builds), "timestamp").reverse();
+    var documentedFailures = addLastFailureInfo(_.filter(failuresArray, documentedFailuresFilter));
+    var undocumentedBuilds = addBuildInfo(failuresMap.other.builds);
 
     var options = {
         currentDate: new Date(),
