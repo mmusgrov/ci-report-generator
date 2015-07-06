@@ -1,6 +1,5 @@
 <html>
 <head>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
 </head>
 <body>
@@ -8,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                    <h1>CI Report <small>Generated on {{ currentDate }}</small></h1>
+                    <h1>CI Report <small>Generated on {{ currentDate.toString() }}</small></h1>
                 </div>
             </div>
         </div>
@@ -41,9 +40,9 @@
                             <td>{{ failure.jiraIssuePriority }}</td>
                             <td>{{ failure.builds.length }}</td>
                             {% if failure.isNew %}
-                                <td>{{ failure.lastFailureDate }} <span class="label label-warning">New</span></td>
+                                <td>{{ failure.lastFailureDate.toString() }} <span class="label label-warning">New</span></td>
                             {% else %}
-                                <td>{{ failure.lastFailureDate }}</td>
+                                <td>{{ failure.lastFailureDate.toString() }}</td>
                             {% endif %}
                             <td>
                                 {% for build in failure.builds %}
@@ -76,9 +75,9 @@
                     {% for build in undocumentedBuilds %}
                         <tr>
                             {% if build.isNew %}
-                                <td>{{ build.date }} <span class="label label-warning">New</span></td>
+                                <td>{{ build.date.toString() }} <span class="label label-warning">New</span></td>
                             {% else %}
-                                <td>{{ build.date }}</td>
+                                <td>{{ build.date.toString() }}</td>
                             {% endif %}
                             <td>
                                 <a href="{{ build.url }}">{{ build.jobName }} {{ build.number }}</a>

@@ -24,8 +24,7 @@ function writeToFile(path, content) {
 function addLastFailureInfo(failures) {
     for (var i = 0; i < failures.length; i++) {
         var lastFailedBuild = _.max(failures[i].builds, "timestamp");
-        failures[i].lastFailureTimestamp = lastFailedBuild.timestamp;
-        failures[i].lastFailureDate = new Date(lastFailedBuild.timestamp).toDateString();
+        failures[i].lastFailureDate = new Date(lastFailedBuild.timestamp);
         failures[i].isNew = lastFailedBuild.timestamp > (new Date().getTime() - weekMilliseconds);
     }
 
@@ -34,7 +33,7 @@ function addLastFailureInfo(failures) {
 
 function addBuildInfo(builds) {
     for (var i = 0; i < builds.length; i++) {
-        builds[i].date = new Date(builds[i].timestamp).toDateString();
+        builds[i].date = new Date(builds[i].timestamp);
         builds[i].isNew = builds[i].timestamp > (new Date().getTime() - weekMilliseconds);
     }
 
@@ -48,11 +47,11 @@ function documentedFailuresFilter(failure) {
 module.exports = function(failuresMap) {
     var deferred = q.defer();
     var failuresArray = _.values(failuresMap);
-    var documentedFailures = _.sortBy(addLastFailureInfo(_.filter(failuresArray, documentedFailuresFilter)), "lastFailureTimestamp").reverse();
+    var documentedFailures = _.sortBy(addLastFailureInfo(_.filter(failuresArray, documentedFailuresFilter)), "lastFailureDate").reverse();
     var undocumentedBuilds = _.sortBy(addBuildInfo(failuresMap.other.builds), "timestamp").reverse();
 
     var options = {
-        currentDate: new Date().toDateString(),
+        currentDate: new Date(),
         documentedFailures: documentedFailures,
         undocumentedBuilds: undocumentedBuilds
     };
