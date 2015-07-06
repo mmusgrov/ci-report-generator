@@ -6,7 +6,14 @@ module.exports = function(grunt) {
             "dist"
         ],
         jshint: {
-            files: ["*.js"]
+            all: ["*.js", "generators/*.js", "streams/*.js"]
+        },
+        mkdir: {
+            all: {
+                options: {
+                    create: ["dist"]
+                }
+            }
         },
         execute: {
             target: {
@@ -17,8 +24,9 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-jshint");
+    grunt.loadNpmTasks("grunt-mkdir");
     grunt.loadNpmTasks("grunt-execute");
 
-    grunt.registerTask("default", ["clean", "jshint", "execute"]);
+    grunt.registerTask("default", ["clean", "jshint", "mkdir", "execute"]);
 
 };

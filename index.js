@@ -40,7 +40,5 @@ fromArray.obj(jobs)
     .pipe(jiraInfoStream)
     .pipe(failuresAggregatorStream);
 
-var htmlReportGenerator = require("./generators/htmlReportGenerator.js");
-
-// Failures aggregator should only push once
-failuresAggregatorStream.on("data", htmlReportGenerator);
+var swigReportGenerator = require("./generators/swigReportGenerator");
+failuresAggregatorStream.on("data", swigReportGenerator);
