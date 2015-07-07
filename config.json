@@ -11,7 +11,23 @@
     },
     {
       "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
+      "name": "narayana-codeCoverage"
+    },
+    {
+      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
       "name": "narayana-documentation"
+    },
+    {
+      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
+      "name": "narayana-hqstore-jacorb"
+    },
+    {
+      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
+      "name": "narayana-ibm-jdk"
+    },
+    {
+      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
+      "name": "narayana-jdbcobjectstore"
     },
     {
       "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
