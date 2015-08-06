@@ -14,7 +14,7 @@
             <div class="col-md-12">
                 <div class="page-header">
                     <h1>CI Report <small>Generated on {{ currentDate | date("d/m/Y") }}</small></h1>
-                    <p>Monitoring <a href="http://albany.eng.hst.ams2.redhat.com/view/Narayana/">http://albany.eng.hst.ams2.redhat.com/view/Narayana/</a></p>
+                    <p>Monitoring <a href="http://172.17.130.4:8083/">http://172.17.130.4:8083/</a></p>
                 </div>
             </div>
         </div>

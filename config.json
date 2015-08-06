@@ -2,40 +2,16 @@
   "jiraHost": "issues.jboss.org",
   "jobs": [
     {
-      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
-      "name": "narayana"
+      "baseUrl": "http://172.17.130.4:8083",
+      "name": "narayana-benchmarks"
     },
     {
-      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
-      "name": "narayana-catelyn"
+      "baseUrl": "http://172.17.130.4:8083",
+      "name": "narayana-dualstack"
     },
     {
-      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
-      "name": "narayana-codeCoverage"
-    },
-    {
-      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
-      "name": "narayana-documentation"
-    },
-    {
-      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
-      "name": "narayana-hqstore-jacorb"
-    },
-    {
-      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
-      "name": "narayana-ibm-jdk"
-    },
-    {
-      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
-      "name": "narayana-jdbcobjectstore"
-    },
-    {
-      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
-      "name": "narayana-quickstarts"
-    },
-    {
-      "baseUrl": "http://albany.eng.hst.ams2.redhat.com",
-      "name": "narayana-quickstarts-catelyn"
+      "baseUrl": "http://172.17.130.4:8083",
+      "name": "narayana-mac"
     }
   ]
 }
