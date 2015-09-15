@@ -3,10 +3,6 @@
   "jobs": [
     {
       "baseUrl": "http://172.17.130.4:8083",
-      "name": "narayana-benchmarks"
-    },
-    {
-      "baseUrl": "http://172.17.130.4:8083",
       "name": "narayana-dualstack"
     },
     {
