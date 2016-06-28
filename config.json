@@ -7,6 +7,10 @@
     },
     {
       "baseUrl": "http://172.17.130.4:8083",
+      "name": "narayana-quickstarts-ipv6"
+    },
+    {
+      "baseUrl": "http://172.17.130.4:8083",
       "name": "tm-comparison-poller"
     },
     {
